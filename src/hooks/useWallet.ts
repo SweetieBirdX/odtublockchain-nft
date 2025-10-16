@@ -34,7 +34,7 @@ export const useWallet = () => {
     setWalletState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {
-      const provider = new ethers.BrowserProvider(window.ethereum);
+      const provider = new ethers.BrowserProvider(window.ethereum!);
       const accounts = await provider.send('eth_requestAccounts', []);
       
       if (accounts.length > 0) {
@@ -60,7 +60,7 @@ export const useWallet = () => {
 
     try {
       // MetaMask'ten izinleri geri çek
-      await window.ethereum.request({
+      await window.ethereum!.request({
         method: 'wallet_revokePermissions',
         params: [{
           eth_accounts: {}
@@ -71,7 +71,7 @@ export const useWallet = () => {
       
       // Eğer wallet_revokePermissions desteklenmiyorsa, alternatif yöntem
       try {
-        await window.ethereum.request({
+        await window.ethereum!.request({
           method: 'wallet_requestPermissions',
           params: [{
             eth_accounts: {}
@@ -97,7 +97,7 @@ export const useWallet = () => {
       if (!isMetaMaskInstalled()) return;
 
       try {
-        const provider = new ethers.BrowserProvider(window.ethereum);
+        const provider = new ethers.BrowserProvider(window.ethereum!);
         const accounts = await provider.listAccounts();
         
         if (accounts.length > 0) {
@@ -129,10 +129,10 @@ export const useWallet = () => {
     };
 
     if (isMetaMaskInstalled()) {
-      window.ethereum.on('accountsChanged', handleAccountsChanged);
+      window.ethereum!.on('accountsChanged', handleAccountsChanged);
       
       return () => {
-        window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+        window.ethereum!.removeListener('accountsChanged', handleAccountsChanged);
       };
     }
   }, []);
