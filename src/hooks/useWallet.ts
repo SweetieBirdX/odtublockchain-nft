@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
+import { isMobile, isMetaMaskMobile, getMetaMaskDeepLink } from '../utils/deviceDetection';
 
 interface WalletState {
   account: string | null;
@@ -23,6 +24,13 @@ export const useWallet = () => {
 
   // Cüzdan bağlantısı
   const connectWallet = async () => {
+    // Mobil cihazda MetaMask uygulamasına yönlendir
+    if (isMetaMaskMobile()) {
+      const deepLinkUrl = getMetaMaskDeepLink();
+      window.open(deepLinkUrl, '_blank');
+      return;
+    }
+
     if (!isMetaMaskInstalled()) {
       setWalletState(prev => ({
         ...prev,
@@ -142,5 +150,7 @@ export const useWallet = () => {
     connectWallet,
     disconnectWallet,
     isMetaMaskInstalled: isMetaMaskInstalled(),
+    isMobile: isMobile(),
+    isMetaMaskMobile: isMetaMaskMobile(),
   };
 };

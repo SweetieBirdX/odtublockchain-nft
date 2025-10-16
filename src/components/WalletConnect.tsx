@@ -13,7 +13,9 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
     error, 
     connectWallet, 
     disconnectWallet, 
-    isMetaMaskInstalled 
+    isMetaMaskInstalled,
+    isMobile,
+    isMetaMaskMobile
   } = useWallet();
 
   const handleConnect = async () => {
@@ -27,7 +29,7 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
 
-  if (!isMetaMaskInstalled) {
+  if (!isMetaMaskInstalled && !isMobile) {
     return (
       <div className="error-message">
         <div>
@@ -90,6 +92,19 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
             <p style={{ marginBottom: '15px' }}>
               NFT almak için cüzdanınızı bağlayın
             </p>
+            {isMobile && (
+              <p style={{ 
+                fontSize: '0.9em', 
+                color: '#4ecdc4', 
+                marginBottom: '15px',
+                fontStyle: 'italic'
+              }}>
+                {isMetaMaskMobile 
+                  ? 'MetaMask uygulamasına yönlendirileceksiniz' 
+                  : 'MetaMask uygulamasını indirin ve cüzdanınızı bağlayın'
+                }
+              </p>
+            )}
             <button
               onClick={handleConnect}
               disabled={isLoading}
@@ -99,7 +114,7 @@ const WalletConnect: React.FC<WalletConnectProps> = ({ onWalletConnected }) => {
                   <span className="loading"></span> Bağlanıyor...
                 </div>
               ) : (
-                'MetaMask Bağla'
+                isMobile ? 'MetaMask Uygulamasını Aç' : 'MetaMask Bağla'
               )}
             </button>
           </div>
