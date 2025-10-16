@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import WalletConnect from '../components/WalletConnect';
 import RegistrationForm from '../components/RegistrationForm';
-import { useWallet } from '../hooks/useWallet';
+import { useAccount } from 'wagmi';
 import { 
   FaEnvelope, 
   FaLink, 
@@ -15,7 +15,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 const Home: React.FC = () => {
   const [showRegistration, setShowRegistration] = useState(false);
-  const { isConnected } = useWallet();
+  const { isConnected } = useAccount();
 
   // Cüzdan bağlı olduğunda form kutusunu göster
   useEffect(() => {

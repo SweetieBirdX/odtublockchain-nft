@@ -23,7 +23,7 @@ ODTÜ Blockchain olarak düzenlediğimiz etkinliklerde katılımcılarımıza ha
 
 - **Frontend**: React + TypeScript + Vite
 - **Styling**: Custom CSS + Glassmorphism
-- **Web3**: ethers.js + MetaMask
+- **Web3**: RainbowKit + Wagmi + WalletConnect
 - **Database**: Firebase Firestore
 
 - **Icons**: React Icons (FontAwesome)
@@ -33,14 +33,53 @@ ODTÜ Blockchain olarak düzenlediğimiz etkinliklerde katılımcılarımıza ha
 ## 🎯 Kullanım
 
 1. Kullanıcı siteye girer
-2. "MetaMask Bağla" butonuna tıklar
-3. MetaMask'te bağlantıyı onaylar
+2. "Connect Wallet" butonuna tıklar (100+ cüzdan seçeneği)
+3. Cüzdanında bağlantıyı onaylar
 4. Adını girer ve "NFT İçin Kaydol" butonuna tıklar
 5. Veriler Firebase'e kaydedilir ve NFT talep işlemi tamamlanır
 
+## 📦 Kurulum
+
+1. **Bağımlılıkları yükleyin:**
+   ```bash
+   npm install
+   ```
+
+2. **Environment Variables (.env dosyası oluşturun):**
+   ```env
+   # Firebase Configuration
+   VITE_FIREBASE_API_KEY=your_firebase_api_key
+   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+   VITE_FIREBASE_PROJECT_ID=your_project_id
+   VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+   VITE_FIREBASE_APP_ID=your_app_id
+
+   # App Configuration
+   VITE_APP_NAME=ODTÜ Blockchain NFT Talep Sayfası
+
+   # WalletConnect Project ID (RainbowKit için gerekli)
+   VITE_WALLETCONNECT_PROJECT_ID=your_walletconnect_project_id
+   ```
+
+3. **Firebase Setup:**
+   - Firebase Console'da proje oluşturun
+   - Firestore Database'i etkinleştirin
+   - Web app ekleyin ve konfigürasyon bilgilerini alın
+
+4. **WalletConnect Setup:**
+   - [WalletConnect Cloud](https://cloud.walletconnect.com/) adresinden ücretsiz project ID alın
+   - Project ID'yi `.env` dosyasına ekleyin
+
+5. **Geliştirme sunucusunu başlatın:**
+   ```bash
+   npm run dev
+   ```
+
 ## 🔒 Güvenlik
 
-- MetaMask ile güvenli cüzdan bağlantısı
+- RainbowKit ile güvenli multi-wallet bağlantısı (100+ cüzdan)
+- Mobil cihazlarda otomatik uygulama yönlendirme
 - Firebase Firestore güvenlik kuralları
 - TypeScript ile tip güvenliği
 - Input validasyonu

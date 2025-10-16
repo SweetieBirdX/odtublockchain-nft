@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { addParticipant } from '../firebase/participants';
-import { useWallet } from '../hooks/useWallet';
+import { useAccount } from 'wagmi';
 
 interface RegistrationFormProps {
   onRegistrationSuccess?: () => void;
@@ -12,7 +12,7 @@ const RegistrationForm: React.FC<RegistrationFormProps> = ({ onRegistrationSucce
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   
-  const { account, isConnected } = useWallet();
+  const { address: account, isConnected } = useAccount();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
