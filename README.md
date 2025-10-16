@@ -1,69 +1,34 @@
-# NFT Etkinlik Kayıt Sistemi
+# ODTÜ Blockchain NFT Talep Sayfası
 
-Bu proje, etkinlik katılımcılarına NFT dağıtmak için kullanılan bir web uygulamasıdır. Kullanıcılar MetaMask ile cüzdanlarını bağlayabilir ve etkinlik için kayıt olabilirler.
+Bu site ODTÜ Blockchain etkinliklerine katılan katılımcılara NFT dağıtmak için oluşturulmuştur. Etkinlik katılımcıları MetaMask cüzdanlarını bağlayarak NFT talep edebilirler.
+
+## 🎯 Proje Amacı
+
+ODTÜ Blockchain olarak düzenlediğimiz etkinliklerde katılımcılarımıza hatıra olarak özel NFT'ler hediye ediyoruz. Bu platform sayesinde katılımcılar:
+
+- MetaMask cüzdanlarını güvenli şekilde bağlayabilir
+- Adlarını girerek NFT talebinde bulunabilir  
+- NFT'lerin daha sonra cüzdanlarına gönderilmesini bekleyebilir
 
 ## 🚀 Özellikler
 
-- **MetaMask Entegrasyonu**: Kullanıcılar cüzdanlarını güvenli bir şekilde bağlayabilir
-- **Firebase Firestore**: Katılımcı verileri güvenli şekilde saklanır
-- **Modern UI/UX**: TailwindCSS ile responsive ve modern tasarım
-- **TypeScript Desteği**: Hem TSX hem JSX dosyaları desteklenir
-- **React Router**: Sayfa yönlendirme için
+- **MetaMask Entegrasyonu**: Güvenli cüzdan bağlantısı
+- **Firebase Firestore**: Katılımcı verilerinin güvenli saklanması
+- **Modern UI/UX**: Gradient temalı, responsive tasarım
+- **TypeScript Desteği**: Tip güvenli kod yapısı
+- **React Icons**: Profesyonel sosyal medya ikonları
+- **Performance Optimized**: Layout shift önleme
 
 ## 🛠️ Teknolojiler
 
 - **Frontend**: React + TypeScript + Vite
-- **Styling**: TailwindCSS
+- **Styling**: Custom CSS + Glassmorphism
 - **Web3**: ethers.js + MetaMask
 - **Database**: Firebase Firestore
-- **Routing**: React Router DOM
 
-## 📦 Kurulum
+- **Icons**: React Icons (FontAwesome)
 
-1. **Bağımlılıkları yükleyin:**
-   ```bash
-   npm install
-   ```
 
-2. **Firebase konfigürasyonu:**
-   - Firebase Console'da yeni proje oluşturun
-   - Firestore Database'i etkinleştirin
-   - `.env` dosyasını oluşturun ve Firebase konfigürasyonunuzu ekleyin
-
-3. **Geliştirme sunucusunu başlatın:**
-   ```bash
-   npm run dev
-   ```
-
-## 🔧 Firebase Kurulumu
-
-1. [Firebase Console](https://console.firebase.google.com/)'a gidin
-2. Yeni proje oluşturun
-3. Firestore Database'i etkinleştirin
-4. Project Settings > General > Your apps > Web app > Config'den konfigürasyonu kopyalayın
-5. Proje kök dizininde `.env` dosyası oluşturun ve değerleri ekleyin
-
-## 📁 Proje Yapısı
-
-```
-src/
-├── components/          # React bileşenleri
-│   ├── Header.tsx
-│   ├── WalletConnect.tsx
-│   └── RegistrationForm.tsx
-├── firebase/           # Firebase konfigürasyonu
-│   ├── config.ts
-│   └── participants.ts
-├── hooks/              # Custom React hooks
-│   └── useWallet.ts
-├── pages/              # Sayfa bileşenleri
-│   └── Home.tsx
-├── types/              # TypeScript tip tanımları
-│   └── ethereum.d.ts
-├── App.tsx
-├── main.tsx
-└── index.css
-```
 
 ## 🎯 Kullanım
 
@@ -71,7 +36,7 @@ src/
 2. "MetaMask Bağla" butonuna tıklar
 3. MetaMask'te bağlantıyı onaylar
 4. Adını girer ve "NFT İçin Kaydol" butonuna tıklar
-5. Veriler Firebase'e kaydedilir
+5. Veriler Firebase'e kaydedilir ve NFT talep işlemi tamamlanır
 
 ## 🔒 Güvenlik
 
@@ -79,19 +44,9 @@ src/
 - Firebase Firestore güvenlik kuralları
 - TypeScript ile tip güvenliği
 - Input validasyonu
+- `noopener noreferrer` güvenlik önlemleri
 
-## 🚀 Deployment
-
-1. **Build alın:**
-   ```bash
-   npm run build
-   ```
-
-2. **Static hosting (Vercel, Netlify, vs.):**
-   ```bash
-   npm run build
-   # dist/ klasörünü hosting servisine yükleyin
-   ```
+## 
 
 ## 📝 Firebase Veritabanı Yapısı
 
@@ -100,17 +55,26 @@ participants/
   - participantId/
     - name: string
     - walletAddress: string
-    - registrationDate: timestamp
+    - timestamp: timestamp
 ```
 
-## 🤝 Katkıda Bulunma
 
-1. Fork yapın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit yapın (`git commit -m 'Add amazing feature'`)
-4. Push yapın (`git push origin feature/amazing-feature`)
-5. Pull Request açın
+## 🌐 ODTÜ Blockchain Sosyal Medya
+
+Bizimle iletişime geçin ve güncel gelişmeleri takip edin:
+
+- **LinkedIn**: [ODTÜ Blockchain](https://www.linkedin.com/company/odtublockchain/)
+- **X (Twitter)**: [@odtublockchain](https://x.com/odtublockchain)
+- **Instagram**: [@odtublockchain](https://www.instagram.com/odtublockchain/)
+- **Website**: [odtublockchain.vercel.app](https://odtublockchain.vercel.app/)
+- **Blockchain Days**: [bdays.org](https://www.bdays.org/)
+- **Email**: odtubct@gmail.com
+
 
 ## 📄 Lisans
 
-Bu proje MIT lisansı altında lisanslanmıştır.
+Bu proje ODTÜ Blockchain tarafından geliştirilmiştir.
+
+---
+
+**ODTÜ Blockchain** - Building a Blockchain Community

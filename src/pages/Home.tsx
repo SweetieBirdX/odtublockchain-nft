@@ -107,7 +107,7 @@ const Home: React.FC = () => {
                   <FaXTwitter />
                 </div>
               </a>
-              <a href="https://www.linkedin.com/in/eyupefekarakoca/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+              <a href="https://www.linkedin.com/company/odtublockchain/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                 <div className="social-icon">
                   <FaLinkedin />
                 </div>
