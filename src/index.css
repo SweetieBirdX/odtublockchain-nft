@@ -1,0 +1,528 @@
+/* Modern NFT Site Teması */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  margin-top: 75px;
+  padding: 0;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 25%, #24243e 50%, #0f3460 75%, #533483 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  min-height: 150vh;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Ana başlık stilleri */
+.page-title {
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  font-size: 3.5em;
+  font-weight: 800;
+  margin: 40px 0;
+  text-align: center;
+  letter-spacing: -1px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGradient 8s ease infinite;
+}
+
+@keyframes textGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Form container - Glassmorphism */
+.form-container {
+  max-width: 700px;
+  margin: 30px auto;
+  margin-bottom: 100px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 25px 45px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  contain: layout;
+}
+
+.form-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite;
+  will-change: transform;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.form-container h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.form-container p {
+  font-size: 1.2em;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Wallet section - Neon glow */
+.wallet-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 25px 0;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.wallet-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: borderGlow 4s ease infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.wallet-section p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Modern button styles */
+.form-container button,
+.form-section button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff9ff3, #54a0ff);
+  background-size: 300% 300%;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1em;
+  font-weight: 700;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 8px 25px rgba(255, 107, 107, 0.4),
+    0 0 15px rgba(255, 107, 107, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  animation: buttonGradient 6s ease infinite;
+  margin: 10px auto;
+  display: block;
+}
+
+/* Wallet section button - inline style */
+.wallet-section button {
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24, #ff9ff3, #54a0ff);
+  background-size: 300% 300%;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 700;
+  border-radius: 45px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 8px 25px rgba(255, 107, 107, 0.4),
+    0 0 15px rgba(255, 107, 107, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  animation: buttonGradient 6s ease infinite;
+  margin: 0;
+  display: inline-block;
+}
+
+@keyframes buttonGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.form-container button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.form-container button:hover::before {
+  left: 100%;
+}
+
+.form-container button:hover,
+.form-section button:hover,
+.wallet-section button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 15px 40px rgba(255, 107, 107, 0.6),
+    0 0 30px rgba(255, 107, 107, 0.5);
+}
+
+.form-container button:active,
+.form-section button:active,
+.wallet-section button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.form-container button:disabled,
+.form-section button:disabled,
+.wallet-section button:disabled {
+  background: #555;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  animation: none;
+}
+
+/* Contact section */
+.contact-section {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-section a {
+  color: #4ecdc4;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+}
+
+.contact-section a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(78, 205, 196, 0.8);
+  text-decoration: underline;
+}
+
+/* Social Media Section */
+.social-media-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.social-media-section a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Form section styling */
+.form-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 20px;
+  margin: 25px 0;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.form-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+  border-radius: inherit;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: borderGlow 4s ease infinite;
+}
+
+/* Input styles */
+input {
+  display: block;
+  padding: 15px 20px;
+  margin: 15px auto;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  width: 280px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1em;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Label styles */
+label {
+  display: block;
+  margin: 15px 0 8px 0;
+  font-weight: 600;
+  font-size: 1.2em;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Error and success messages */
+.error-message {
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.5);
+  color: #ff6b6b;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 15px 0;
+  backdrop-filter: blur(10px);
+}
+
+.success-message {
+  background: rgba(78, 205, 196, 0.2);
+  border: 1px solid rgba(78, 205, 196, 0.5);
+  color: #4ecdc4;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 15px 0;
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2.2em;
+    margin: 15px 10px;
+    padding: 0 10px;
+    line-height: 1.2;
+  }
+  
+  .form-container {
+    margin: 15px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .form-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .form-container p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .wallet-section {
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .form-container button {
+    padding: 15px 25px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  input {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 15px;
+    font-size: 16px; /* iOS zoom önleme */
+  }
+  
+  .contact-section {
+    margin-top: 20px;
+    padding-top: 15px;
+  }
+  
+  .social-media-section {
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+  
+  .social-links {
+    gap: 15px;
+  }
+  
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .social-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8em;
+    margin: 10px 5px;
+  }
+  
+  .form-container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .form-container h2 {
+    font-size: 1.5em;
+  }
+  
+  .form-container p {
+    font-size: 0.9em;
+  }
+  
+  .wallet-section {
+    padding: 12px;
+  }
+  
+  .form-container button {
+    padding: 12px 20px;
+    font-size: 0.9em;
+  }
+}
+
+/* Loading animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Floating particles effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(78, 205, 196, 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 107, 107, 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(84, 160, 255, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 150px 100px;
+  animation: float 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
